@@ -49,20 +49,25 @@
         }
         
         .gallery-section {
-            margin: 40px 0;
+            margin: 40px 30;
         }
         
         .gallery-container {
             display: grid;
+            margin-bottom: auto;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 15px;
         }
         
+        /* FIXED: Gallery Item with straight borders */
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 8px; /* Changed from 10px to 8px for straighter look */
+            border: 2px solid #e0e0e0; /* Added border for definition */
             height: 200px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         
         .gallery-item img {
@@ -70,10 +75,32 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            display: block; /* Remove extra space under image */
         }
         
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
+        }
+        
+        /* For even straighter borders, use this instead */
+        .gallery-item-straight {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; /* Completely straight corners */
+            border: 2px solid #f0f0f0;
+            height: 200px;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* If you want minimal rounded corners */
+        .gallery-item-minimal {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px; /* Very minimal rounding */
+            border: 1px solid #e8e8e8;
+            height: 200px;
+            background: #fff;
         }
         
         .program-outcomes {
@@ -125,6 +152,98 @@
             border-radius: var(--border-radius);
             border: 1px solid var(--light-blue);
             text-align: center;
+        }
+        
+        /* Event Calendar Styles */
+        .events-calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .event-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .event-date {
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 70px;
+        }
+        
+        .event-day {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .event-month {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .event-details {
+            flex: 1;
+        }
+        
+        .event-details h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .event-details p {
+            color: var(--text-muted);
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        /* Program Cards */
+        .programs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .program-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .program-card ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .program-card li {
+            margin: 8px 0;
+            color: var(--text-dark);
         }
     </style>
 </head>
@@ -235,32 +354,45 @@
     <section class="content-section gallery-section">
         <h2 class="section-title">Gallery - Our Activities</h2>
         
+        <!-- Choose one of these options by changing the class name -->
+        
+        <!-- Option 1: Minimal rounded corners (recommended) -->
         <div class="gallery-container">
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img1.jpg" alt="Workshop Session">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img2.jpg" alt="Community Engagement">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img3.jpg" alt="Group Discussion">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img4.jpg" alt="Training Session">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img5.jpg" alt="Participant Interaction">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img6.jpg" alt="Educational Materials">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img7.jpg" alt="Team Planning">
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item-minimal">
                 <img src="images/csr/img8.jpg" alt="Community Event">
             </div>
         </div>
+        
+        <!-- Option 2: Completely straight corners (alternative) -->
+        <!-- 
+        <div class="gallery-container">
+            <div class="gallery-item-straight">
+                <img src="images/csr/img1.jpg" alt="Workshop Session">
+            </div>
+            ... other images ...
+        </div>
+        -->
     </section>
 
     <section class="content-section">
